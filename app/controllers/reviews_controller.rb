@@ -1,7 +1,14 @@
 class ReviewsController < ApplicationController
-  def index
+  def show
   end
 
-  def show
+  private
+
+  def set_reviews
+    @reviews = Review.all
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 end
