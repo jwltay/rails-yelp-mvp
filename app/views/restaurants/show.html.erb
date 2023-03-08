@@ -1,5 +1,4 @@
-<h1>Restaurant</h1>
-<p><%= @restaurant.name %></p>
+<h2><%= @restaurant.name %></h2>
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.phone_number %></p>
 <p><%= @restaurant.category %></p>
@@ -12,3 +11,5 @@
       <%= review.content %></li>
   <% end %>
 </ul>
+
+<p><%= link_to "Add Review", new_restaurant_review_path(@restaurant) %></p>
