@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurants, only: %i[index]
-  before_action :set_restaurant, only: %i[show]
-  before_action :new_restaurant, only: %i[new, create]
+  before_action :set_restaurant, only: %i[show edit update]
+  before_action :new_restaurant, only: %i[new]
 
   def index
     @restaurants
@@ -16,16 +16,12 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new
-    restaurant = Restaurant.new(restaurant_params)
-    if restaurant.save
-      redirect_to restaurant_path(restaurant)
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
   end
 
   private
